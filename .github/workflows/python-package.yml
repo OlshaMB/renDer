@@ -30,4 +30,4 @@ jobs:
       run: poetry
     - name: Test with pytest
       run: |
-        poetry run tests
+        poetry run python test.py
