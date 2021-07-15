@@ -4,6 +4,7 @@ from FastRenDer import Page,Component
 
 class renDerTest(unittest.TestCase):
     def testBasicPage(self):
+        file=open("./html/correct.html","r")
         title = Component("Title", os.path.abspath("./html/title.html"))
         content = Component("Content", os.path.abspath("./html/content.html"))
         content.add_Component(title)
@@ -11,9 +12,9 @@ class renDerTest(unittest.TestCase):
         main.add_Component(title)
         main.add_Component(content)
         #main.render()
-        print("\n", main.render())
-        self.assertEqual(True, True)
+
+        self.assertEqual(file.read(), main.render())
 
 
-if __name__ == '__main__':
+def main():
     unittest.main()
